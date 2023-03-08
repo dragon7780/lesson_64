@@ -5,10 +5,21 @@
     <bean name="authController" class="controller.AuthController">
         <property name="authService" ref="authService"/>
     </bean>
+    <bean name="cardService" class="service.CardService"/>
     <bean name="authService" class="service.AuthService">
         <property name="profileRepository" ref="profileRepository"/>
     </bean>
+    <bean name="profileController" class="controller.ProfileController">
+        <property name="cardService" ref="cardService"/>
+    </bean>
+    <bean name="profileService" class="service.ProfileService">
+        <property name="profileRepository" ref="profileRepository"/>
+        <property name="cardService" ref="cardService"/>
+    </bean>
     <bean name="profileRepository" class="repository.ProfileRepository"/>
-    <bean name="profileService" class="service.ProfileService"/>
-
+    <bean name="transactionService" class="service.TransactionService"/>
+    <bean name="terminalService" class="service.TerminalService"/>
+    <bean name="terminalRepository" class="repository.TerminalRepository"/>
+    <bean name="transactionRepository" class="repository.TerminalRepository"/>
+    <bean name="cardRepository" class="repository.CardRepository"/>
 </beans>

@@ -120,5 +120,7 @@ public class ProfileController {
 
     }
 
-
+    public void setCardService(CardService cardService) {
+        this.cardService = cardService;
+    }
 }

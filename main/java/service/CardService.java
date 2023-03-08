@@ -14,7 +14,6 @@ import java.util.List;
 public class CardService {
     private TransactionService transactionService = ComponentContainer.transactionService;
     private TerminalService terminalService = ComponentContainer.terminalService;
-
     private ProfileService profileService = ComponentContainer.profileService;
 
     public void addCardToProfile(String phone, String cardNum) {

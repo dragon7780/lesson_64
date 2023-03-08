@@ -2,13 +2,16 @@ package controller;
 
 import container.ComponentContainer;
 import dto.Profile;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import service.AuthService;
 import util.ScannerUtil;
 
 import java.util.Scanner;
 
 public class AuthController {
-    AuthService authService = new AuthService();
+
+    private AuthService authService =new AuthService();
     public void start() {
         boolean game = true;
         while (game) {

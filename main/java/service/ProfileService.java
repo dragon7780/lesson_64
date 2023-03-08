@@ -34,4 +34,11 @@ public class ProfileService {
         }
     }
 
+    public void setProfileRepository(ProfileRepository profileRepository) {
+        this.profileRepository = profileRepository;
+    }
+
+    public void setCardService(CardService cardService) {
+        this.cardService = cardService;
+    }
 }

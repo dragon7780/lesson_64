@@ -1,9 +1,11 @@
 package controller;
 
 import container.ComponentContainer;
+import dto.Card;
 import dto.Terminal;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import service.CardService;
 import service.ProfileService;
 import service.TerminalService;
 import util.ScannerUtil;
@@ -15,6 +17,7 @@ public class AdminController {
     private ProfileService profileService = new ProfileService();
     private TerminalService terminalService = new TerminalService();
     ApplicationContext context=new ClassPathXmlApplicationContext("spring-config.xml");
+    CardService cardService = (CardService) context.getBean("cardService");
     public void start() {
         boolean b = true;
         while (b) {
@@ -113,27 +116,25 @@ public class AdminController {
         System.out.print("Enter card expired date (yyyy.MM.dd): ");
         String expiredDate = scanner.nextLine();
 
-        ComponentContainer.cardService.adminCreateCard(cardNumber, expiredDate);
+        cardService.adminCreateCard(cardNumber,expiredDate);
     }
 
     private void cardList() {
-        ComponentContainer.cardService.cardList();
+        cardService.cardList();
     }
 
     private void deleteCard() {
         System.out.print("Enter card number: ");
         Scanner scanner = new Scanner(System.in);
         String cardNumber = scanner.nextLine();
-
-        ComponentContainer.cardService.adminDeleteCard(cardNumber);
+      cardService.adminDeleteCard(cardNumber);
     }
 
     private void changeCardStatus() {
         System.out.print("Enter card number: ");
         Scanner scanner = new Scanner(System.in);
         String cardNumber = scanner.nextLine();
-
-        ComponentContainer.cardService.adminChangeStatus(cardNumber);
+        cardService.adminChangeStatus(cardNumber);
     }
 
     private void updateCard() {
@@ -144,7 +145,7 @@ public class AdminController {
         System.out.print("Enter card expired date (yyyy.MM.dd): ");
         String expiredDate = scanner.nextLine();
 
-        ComponentContainer.cardService.adminUpdateCard(cardNumber, expiredDate);
+        cardService.adminUpdateCard(cardNumber, expiredDate);
     }
 
 
